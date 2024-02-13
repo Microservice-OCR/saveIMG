@@ -41,6 +41,6 @@ jobs:
         unzip -o sonar-scanner-cli-4.6.2.2472-linux.zip
         export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
         sonar-scanner \
-          -Dsonar.projectKey=OCR-ENGINE \
+          -Dsonar.projectKey=saveIMG \
           -Dsonar.host.url=https://7f69-176-138-173-84.ngrok-free.app \
           -Dsonar.login=$SONAR_TOKEN
