@@ -23,6 +23,11 @@
             "dest": "/api/image.go"
         },
         {
+            "src": "/api/image/(.*)",
+            "methods": ["PATCH"],
+            "dest": "/api/patch.go"
+        },
+        {
             "src": "/api/user/(.*)",
             "methods": ["GET"],
             "dest": "/api/user.go"
