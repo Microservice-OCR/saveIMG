@@ -11,6 +11,11 @@
             "src": "/api/upload",
             "methods": ["POST"],
             "dest": "/api/upload.go"
+        },
+        {
+            "src": "/api/images/(.*)",
+            "methods": ["GET"],
+            "dest": "/api/images.go"
         }
     ]
 }
