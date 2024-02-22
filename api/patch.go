@@ -14,8 +14,8 @@ import (
 )
 
 func PatchHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		http.Error(w, "Only GET requests are allowed", http.StatusMethodNotAllowed)
+	if r.Method != http.MethodPatch {
+		http.Error(w, "Only PATCH requests are allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
