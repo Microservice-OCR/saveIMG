@@ -16,6 +16,11 @@
             "src": "/api/images/(.*)",
             "methods": ["GET"],
             "dest": "/api/images.go"
+        },
+        {
+            "src": "/api/image/(.*)",
+            "methods": ["GET"],
+            "dest": "/api/image.go"
         }
     ]
 }

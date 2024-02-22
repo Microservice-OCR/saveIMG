@@ -59,13 +59,13 @@ func UploadImageHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = multiPartWriter.Close()
 	if err != nil {
-		log.Panic("Error closing multipart writer: %v", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
 	req, err := http.NewRequest("POST", awsURL, &requestBody)
 	if err != nil {
-		log.Panic("Error creating HTTP request: %v", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 	req.Header.Set("Content-Type", multiPartWriter.FormDataContentType())
@@ -73,13 +73,13 @@ func UploadImageHandler(w http.ResponseWriter, r *http.Request) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Panic("Error performing HTTP request: %v", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		log.Panic("API returned non-OK status: %s", resp.Status)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
