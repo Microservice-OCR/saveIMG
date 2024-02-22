@@ -20,3 +20,8 @@ type IComplexElement struct {
 	Width  int    `bson:"width"`
 	Height int    `bson:"height"`
 }
+
+type IAWSResponse struct {
+	Message  string `json:"message"`
+	TrueName string `json:"trueName"`
+}
