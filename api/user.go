@@ -53,8 +53,12 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	
-	if err := json.NewEncoder(w).Encode(images); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+
+	jsonData, err := json.Marshal(images)
+	if err != nil {
+		http.Error(w, "Erreur lors de la conversion en JSON", http.StatusInternalServerError)
+		return
 	}
+
+	w.Write(jsonData)
 }
