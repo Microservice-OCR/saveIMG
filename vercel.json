@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "/api/**/*.go",
+            "use": "@vercel/go"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/upload",
+            "methods": ["POST"],
+            "dest": "/api/upload.go"
+        },
+        {
+            "src": "/api/images/(.*)",
+            "methods": ["GET"],
+            "dest": "/api/images.go"
+        },
+        {
+            "src": "/api/image/(.*)",
+            "methods": ["GET"],
+            "dest": "/api/image.go"
+        },
+        {
+            "src": "/api/image/(.*)",
+            "methods": ["PATCH"],
+            "dest": "/api/patch.go"
+        },
+        {
+            "src": "/api/user/(.*)",
+            "methods": ["GET","OPTIONS"],
+            "dest": "/api/user.go"
+        }
+    ]
+}
