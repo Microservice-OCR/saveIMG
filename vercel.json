@@ -29,7 +29,7 @@
         },
         {
             "src": "/api/user/(.*)",
-            "methods": ["GET"],
+            "methods": ["GET","OPTIONS"],
             "dest": "/api/user.go"
         }
     ]
