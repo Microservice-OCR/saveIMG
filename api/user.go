@@ -43,7 +43,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	images, err := dbHandler.FindAllImagesByIdUser(userId)
-	if err != nil {
+	if err != nil || images == nil {
 		if err == mongo.ErrNoDocuments {
 			http.Error(w, "Images not found", http.StatusBadRequest)
 		} else {

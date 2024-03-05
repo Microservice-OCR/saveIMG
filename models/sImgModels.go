@@ -3,12 +3,12 @@ package models
 // ImageData représente les métadonnées d'une image, y compris son chemin d'accès.
 type ImageData struct {
 	ID          string                `bson:"_id,omitempty"`
-	UserId      string                `bson:"user_id"`
+	UserId      string                `bson:"idUser"`
 	Name        string                `bson:"name"`
 	Path        string                `bson:"path"`
 	ContentType string                `bson:"content_type"`
-	Fulltext    string                `bson:"fulltext"`
-	Recognition []IComplexRecognition `bson:"recognition"`
+	Fulltext    string                `bson:"fulltext,omitempty"`
+	Recognition []IComplexRecognition `bson:"recognition,omitempty"`
 }
 
 type IComplexRecognition map[string]IComplexElement
