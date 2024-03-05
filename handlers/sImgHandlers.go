@@ -88,10 +88,10 @@ func (handler *DBHandler) FindAllImagesByIdUser(idUser string) ([]models.ImageDa
 	defer cancel()
 
 	// Convertir l'ID utilisateur en un type approprié si nécessaire (par exemple, ObjectID pour MongoDB)
-	formattedIdUser, _ := primitive.ObjectIDFromHex(idUser)
+	// formattedIdUser, _ := primitive.ObjectIDFromHex(idUser)
 
 	// Utiliser bson.M pour filtrer les documents par idUser
-	cursor, err := collection.Find(ctx, bson.M{"idUser": formattedIdUser})
+	cursor, err := collection.Find(ctx, bson.M{"idUser": idUser})
 	if err != nil {
 		return nil, err
 	}
