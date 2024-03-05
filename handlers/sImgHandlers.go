@@ -96,19 +96,19 @@ func (handler *DBHandler) FindAllImagesByIdUser(idUser string) ([]models.ImageDa
 		return nil, err
 	}
 	defer cursor.Close(ctx)
+	cursor.All(ctx,&images)
+	// for cursor.Next(ctx) {
+	// 	var image models.ImageData
+	// 	err := cursor.Decode(&image)
+	// 	if err != nil {
+	// 		return nil, err
+	// 	}
+	// 	images = append(images, image)
+	// }
 
-	for cursor.Next(ctx) {
-		var image models.ImageData
-		err := cursor.Decode(&image)
-		if err != nil {
-			return nil, err
-		}
-		images = append(images, image)
-	}
-
-	if err := cursor.Err(); err != nil {
-		return nil, err
-	}
+	// if err := cursor.Err(); err != nil {
+	// 	return nil, err
+	// }
 
 	return images, nil
 }
